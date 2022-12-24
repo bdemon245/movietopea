@@ -1,0 +1,15 @@
+.movie-card{
+    position: relative;
+
+}
+.movie-year{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: 600;
+
+}
+.movie-info{
+    position: absolute;
+    bottom: 0;
+}

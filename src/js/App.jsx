@@ -32,6 +32,7 @@ function App() {
       <div className='container px-5 py-2 d-flex justify-content-center'>
         <div id="search-bar" className='d-flex align-items-center' style={{ width: '80%' }}>
           <input
+          style={{fontSize: 16}}
             className="form-control me-2 bg-dark search-box text-secondary"
             placeholder="Search for movies"
             value={query}

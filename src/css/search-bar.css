@@ -1,9 +1,11 @@
-#search-bar{
-    position: relative;
-}
-.search-icon{
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px 20px;
+.search-btn{
+     border: none; 
+     background: none;
+     color: #0d6efd;
+     transition: all 0.5s;
+    }
+    
+.search-btn:focus{
+    box-shadow: inset 0 0 0 20px #0d6efd;
+    color: white;
 }

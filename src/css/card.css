@@ -1,0 +1,76 @@
+:root{
+    --card-width: 16.6rem;
+    --card-text-color: rgb(197, 195, 195);
+}
+
+.movie-card {
+    /* Set the width and height of the card */
+    width: var(--card-width);
+    aspect-ratio: 3/4;  
+    border: none;
+    padding: none;
+    /* Add a hover effect to the card */
+    transition: transform 0.3s;
+    position: relative;
+  }
+  
+  .movie-card:hover {
+    /* On hover, scale the card up slightly */
+    transform: scale(1.04);
+  }
+  .movie-card:hover .movie-info{
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .movie-card img {
+    /* Set the width and height of the image to fill the card */
+    width: 100%;
+    border-radius:10px;
+  }
+  .movie-info{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(#2b2b2c71, #14141486, #00000086);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(hsla(0, 0%, 37%, 0.001) 10%, hsla(0, 0%, 0%, 0.899) 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    bottom: 0;
+    padding: .08em;
+    font-size: var(--card-width);
+    transition: height 0.4s, opacity 0.3s, visibility 0.3s;
+  }
+  .movie-info .wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .movie-title {
+    /* Style the title of the card */
+    font-size: .08em;
+    font-weight: 600;
+    color: var(--card-text-color);
+    margin: 0;
+  }
+  
+  .movie-subtitle {
+    /* Style the subtitle of the card */
+    font-size: .05em;
+    color: var(--card-text-color);
+    font-weight: 600;
+    margin: 0;
+  }
+  .movie-year{
+    font-size: .062em;
+    color: var(--card-text-color);
+    font-weight: 600;
+    margin: 0;
+    transition: transform .3s;
+  }
+  

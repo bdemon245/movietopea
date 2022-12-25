@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import '../css/search-bar.css'
 const Header = () => {
     return (
         <div id="header" className="container">
             <NavBar />
-            <SearchBar />
         </div>
     )
 }
@@ -31,16 +29,6 @@ const NavBar = () => {
                     {!theme ? (<i className='text-light fa-solid fa-sun'></i>) : (<i className='text-light fa-solid fa-moon'></i>)}
                 </button>
             </nav>
-        </div>
-    )
-}
-const SearchBar = () => {
-
-    return (
-        <div className='container py-2'>
-            <div id="search-bar" className="px-2">
-                <input className="form-control me-2 bg-dark search-box" type="search" placeholder="Search" aria-label="Search" /><i className="fa-solid fa-search text-primary search-icon"></i>
-            </div>
         </div>
     )
 }

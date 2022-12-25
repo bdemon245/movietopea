@@ -30,8 +30,8 @@ function MovieCard({ movie }) {
             </div>
             <img className={isLoading && "placeholder col-12"} src={movie.poster_path === undefined ? "http://via.placeholder.com/500" : poster} alt={title} />
             <div className="movie-info">
-                <div className={isLoading ? 'placeholder-glow' : ''}>
-                    <h3 className={isLoading ? 'placeholder col-6' : "movie-title"}>{title}</h3>
+                <div className={isLoading ? 'placeholder-glow wrapper' : 'wrapper'}>
+                    <h3 className={isLoading ? 'placeholder col-6 movie-title' : "movie-title"}>{title}</h3>
                 </div>
             </div>
         </div>

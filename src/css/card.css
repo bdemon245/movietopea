@@ -53,7 +53,6 @@
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
   }
   
@@ -91,6 +90,6 @@
     top: 0;
     padding: .05em;
     font-size: var(--card-width);
-    transition: height 0.4s, opacity 0.3s, visibility 0.3s;
+    transition: height 0.5s, opacity 0.5s, visibility 0.5s;
   }
  

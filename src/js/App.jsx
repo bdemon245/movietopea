@@ -78,7 +78,13 @@ function App() {
             value={search}
             onChange={(e) => {
               setSearch(e.target.value)
-            }} aria-label="Search" />
+            }} aria-label="Search" onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                setQuery(`${search_url + API_KEY}&page=${page}&query=${search}`)
+                setIsSearching(true)
+                setTitle(search)
+              }
+            }} />
           <button className='bg-none p-2 rounded-3 search-btn text-center' onClick={() => {
             setQuery(`${search_url + API_KEY}&page=${page}&query=${search}`)
             setIsSearching(true)
@@ -91,7 +97,7 @@ function App() {
       {/* movies panel */}
       <div id='trending-section' className="container">
         <h2 className="text-light">{isSearching === true ? `Showing results for "${title}"` : "Trendig"}</h2>
-        <div className='row'>
+        <div className='container row d-flex justify-content-center '>
           {
 
             isLoading === true ? <>
@@ -156,30 +162,38 @@ function App() {
                 <MovieCard movie='isLoading' />
               </div>
 
-            </> :
-              movies.map(movie =>
-              (
-                <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                  <MovieCard movie={movie} key={movie.id + "@" + movie.release_date} />
-                </div>
-              ))
-          }
+            </> : movies.length > 0 ? movies.map(movie =>
+            (
+              <div className="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                <MovieCard movie={movie} key={movie.id + "@" + movie.release_date} />
+              </div>
+            ))
+              : <div className="text-center text-light h3 align-self-center mb-5">No records found</div>}
         </div>
       </div>
+
 
       {/* pagination */}
       <nav className='d-flex justify-content-center' aria-label="...">
         <ul className="pagination">
-          <li className="page-item disabled">
-            <span className="page-link" href="#">Previous</span>
+          <li className="page-item" >
+            <button className='bg-light text-primary border border-0 px-3' onClick={() => {
+              if (page > 1) {
+                setPage(page - 1)
+                setQuery(`${trending_url + API_KEY}&page=${page}`)
+                console.log(page)
+              }
+            }}>Prev</button>
           </li>
-          <li className="page-item active" aria-current="page"><span className="page-link" href="#">1</span></li>
-          <li className="page-item" onClick={() => {
-            setPage(page + 1)
-            setQuery(`${trending_url + API_KEY}&page=${page}`)
-            console.log(page)
-          }}>
-            <span className="page-link" href="#">Next</span>
+          <li role='button' className="page-item active" aria-current="page"><button className='bg-primary text-light border border-0 px-3' onClick={() => {
+            //do something
+          }}>1</button></li>
+          <li className="page-item" >
+            <button className='bg-light text-primary border border-0 px-3' onClick={() => {
+              setPage(page + 1)
+              setQuery(`${trending_url + API_KEY}&page=${page}`)
+              console.log(page)
+            }}>Next</button>
           </li>
         </ul>
       </nav>

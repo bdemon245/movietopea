@@ -1,12 +1,12 @@
 :root{
-    --card-width: 16.6rem;
+    --card-width: 25rem;
     --card-text-color: rgb(197, 195, 195);
 }
 
 .movie-card {
     /* Set the width and height of the card */
-    width: var(--card-width);
-    aspect-ratio: 3/4;  
+    max-width: var(--card-width);
+   aspect-ratio: 2.5/3; 
     border: none;
     padding: none;
     /* Add a hover effect to the card */
@@ -23,23 +23,29 @@
     opacity: 0;
     visibility: hidden;
   }
+.movie-card:hover .hidden-div{
+    height: 80%;
+    visibility: visible;
+    opacity: 1;
+}
 
   .movie-card img {
     /* Set the width and height of the image to fill the card */
     width: 100%;
     border-radius:10px;
   }
+
   .movie-info{
     background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(#2b2b2c71, #14141486, #00000086);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(hsla(0, 0%, 37%, 0.001) 10%, hsla(0, 0%, 0%, 0.899) 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(hsla(0, 0%, 37%, 0.001) 10%, hsla(0, 0%, 0%, 0.899) 90%);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(hsla(0, 0%, 37%, 0.001) 10%, hsla(0, 0%, 0%, 0.899) 90%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     border-radius: 0 0 10px 10px;
     position: absolute;
     width: 100%;
     height: 70%;
     bottom: 0;
-    padding: .08em;
+    padding: .05em;
     font-size: var(--card-width);
     transition: height 0.4s, opacity 0.3s, visibility 0.3s;
   }
@@ -53,24 +59,38 @@
   
   .movie-title {
     /* Style the title of the card */
-    font-size: .08em;
+    font-size: .06em;
     font-weight: 600;
     color: var(--card-text-color);
     margin: 0;
   }
   
-  .movie-subtitle {
+  .hidden-div .details {
     /* Style the subtitle of the card */
     font-size: .05em;
     color: var(--card-text-color);
     font-weight: 600;
     margin: 0;
   }
-  .movie-year{
-    font-size: .062em;
+  .hidden-div .movie-overview{
+    font-size: .05em;
     color: var(--card-text-color);
-    font-weight: 600;
+    font-weight: 400;
     margin: 0;
-    transition: transform .3s;
   }
-  
+  .hidden-div{ 
+    background: -webkit-linear-gradient(hsla(0, 0%, 0%, 0.75) 80%, hsla(0, 0%, 37%, 0.001) 10%);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(hsla(0, 0%, 0%, 0.75) 80%, hsla(0, 0%, 37%, 0.001) 10%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 10px 10px 0 0 ;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+    padding: .05em;
+    font-size: var(--card-width);
+    transition: height 0.4s, opacity 0.3s, visibility 0.3s;
+  }
+ 
